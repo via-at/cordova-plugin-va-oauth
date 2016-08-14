@@ -4,5 +4,9 @@ import org.apache.cordova.*;
 
 public class FacebookOAuth implements VAOAuth {
 
-    public void signIn(final CallbackContext callbackContext) {}
+    public void signIn() {
+    }
+
+    public void signOut() {
+    }
 }

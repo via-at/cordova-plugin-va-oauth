@@ -2,7 +2,11 @@ package plugin.va.oauth;
 
 import org.apache.cordova.*;
 
-public class TwitterOAuth implemnts VAOAuth {
+public class TwitterOAuth implements VAOAuth {
 
-    public void signIn(final CallbackContext callbackContext) {}
+    public void signIn() {
+    }
+
+    public void signOut() {
+    }
 }

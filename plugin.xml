@@ -13,21 +13,47 @@
         <engine name="cordova-android" version=">5.0.0"/>
     </engines>
 
-    <js-module src="www/OAuthManager.js" name="OAuthManager">
-        <runs />
+    <js-module src="www/GoogleOAuth.js" name="GoogleOAuth">
+        <merges target="cordova.plugins" />
+    </js-module>
+
+    <js-module src="www/FacebookOAuth.js" name="FacebookOAuth">
+        <merges target="cordova.plugins" />
+    </js-module>
+
+    <js-module src="www/TwitterOAuth.js" name="TwitterOAuth">
+        <merges target="cordova.plugins" />
     </js-module>
 
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="oauthManager">
-                <param name="android-package" value="plugin.va.oauth.OAuthManager" />
+            <feature name="GoogleOAuth">
+                <param name="android-package" value="plugin.va.oauth.GoogleOAuth" />
+            </feature>
+            <feature name="FacebookOAuth">
+                <param name="android-package" value="plugin.va.oauth.FacebookOAuth" />
+            </feature>
+            <feature name="TwitterOAuth">
+                <param name="android-package" value="plugin.va.oauth.TwitterOAuth" />
             </feature>
         </config-file>
 
-        <source-file src="src/android/OAuthManager.java" target-dir="src/plugin/va/oauth" />
+        <source-file src="src/android/VAOAuth.java" target-dir="src/plugin/va/oauth" />
+        <source-file src="src/android/GoogleOAuth.java" target-dir="src/plugin/va/oauth" />
+        <source-file src="src/android/FacebookOAuth.java" target-dir="src/plugin/va/oauth" />
+        <source-file src="src/android/TwitterOAuth.java" target-dir="src/plugin/va/oauth" />
 
-        <framework src="com.google.firebase:firebase-auth:9.4.0" />
-        <framework src="com.google.android.gms:play-services-auth:9.4.0" />
+        <framework custom="true" src="src/android/build.gradle" type="gradleReference" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="oauthManager">
+                <param name="ios-package" value="OAuthManager" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/ios/OAuthManager.swift" />
     </platform>
 
 </plugin>

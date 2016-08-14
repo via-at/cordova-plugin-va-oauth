@@ -4,5 +4,7 @@ import org.apache.cordova.*;
 
 public interface VAOAuth {
 
-    public void signIn(final CallbackContext callbackContext);
+    public void signIn();
+
+    public void signOut();
 }
