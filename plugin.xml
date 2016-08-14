@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-va-oauth" version="0.0.1">
+
+    <name>va-oauth</name>
+    <description>A cordova plugin which supports OAuth authorization.</description>
+    <author>via-at Developers</author>
+    <keywords>va-oauth, OAuth</keywords>
+    <license>MIT License</license>
+    <repo>https://github.com/via-at/cordova-plugin-va-oauth.git</repo>
+
+    <engines>
+        <engine name="cordova-android" version=">5.0.0"/>
+    </engines>
+
+    <js-module src="www/OAuthManager.js" name="OAuthManager">
+        <runs />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="oauthManager">
+                <param name="android-package" value="plugin.va.oauth.OAuthManager" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/OAuthManager.java" target-dir="src/plugin/va/oauth" />
+
+        <framework src="com.google.firebase:firebase-auth:9.4.0" />
+        <framework src="com.google.android.gms:play-services-auth:9.4.0" />
+    </platform>
+
+</plugin>
