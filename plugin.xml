@@ -47,13 +47,25 @@
     </platform>
 
     <platform name="ios">
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="oauthManager">
-                <param name="ios-package" value="OAuthManager" />
+        <config-file target="config.xml" parent="/*">
+            <feature name="GoogleOAuth">
+                <param name="ios-package" value="GoogleOAuth" />
             </feature>
         </config-file>
 
-        <source-file src="src/ios/OAuthManager.swift" />
+        <source-file src="src/ios/GoogleOAuth.swift" />
+        <source-file src="src/ios/AppDelegate+VAOAuth.m" />
+        <source-file src="src/ios/AppDelegate+VAOAuth.h" />
+
+        <framework custom="true" src="src/ios/lib/GoogleSignIn.framework" />
+        <framework custom="true" src="src/ios/lib/GoogleAppUtilities.framework" />
+        <framework custom="true" src="src/ios/lib/GoogleAuthUtilities.framework" />
+        <framework custom="true" src="src/ios/lib/GoogleNetworkingUtilities.framework" />
+        <framework custom="true" src="src/ios/lib/GoogleUtilities.framework" />
+        <framework custom="true" src="src/ios/lib/GoogleSymbolUtilities.framework" />
+        <framework src="AddressBook.framework" weak="true" />
+        <framework src="SafariServices.framework" weak="true" />
+        <framework src="SystemConfiguration.framework" weak="true" />
     </platform>
 
 </plugin>
